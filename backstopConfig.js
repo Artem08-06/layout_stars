@@ -1,12 +1,11 @@
 'use strict';
-// https://github.com/garris/BackstopJS#advanced-scenarios
-
+'https: github.com/garris/BackstopJS#advanced-scenarios';
 const backstop = require('@mate-academy/backstop-config');
 const { basicScenario } = backstop;
 
 const basic = {
   ...basicScenario,
-  label: 'Elementary test',
+  label: 'Stars test',
   referenceUrl: basicScenario.referenceUrl + '/stars/',
 };
 
@@ -15,9 +14,9 @@ const config = {
   fileNameTemplate: '{scenarioLabel}',
   viewports: [
     {
-      name: 'tablet_h',
-      width: 100,
-      height: 100,
+      name: 'desktop',
+      width: 400,   // ширини достатньо, щоб вмістити 5 зірок
+      height: 100,  // висота для блоку
     },
   ],
   scenarios: [
@@ -28,33 +27,10 @@ const config = {
     },
     {
       ...basic,
-      label: 'stars--0',
-      selectors: ['.stars--0'],
-    },
-    {
-      ...basic,
-      label: 'stars--1',
-      selectors: ['.stars--1'],
-    },
-    {
-      ...basic,
-      label: 'stars--2',
-      selectors: ['.stars--2'],
-    },
-    {
-      ...basic,
-      label: 'stars--3',
-      selectors: ['.stars--3'],
-    },
-    {
-      ...basic,
-      label: 'stars--4',
-      selectors: ['.stars--4'],
-    },
-    {
-      ...basic,
-      label: 'stars--5',
-      selectors: ['.stars--5'],
+      label: 'Stars container',
+      selectors: ['.stars'],
+      misMatchThreshold: 0, // строгий контроль — жодних відмінностей
+      delay: 500,           // почекати перед скріншотом, щоб відрендерилось
     },
   ],
 };
